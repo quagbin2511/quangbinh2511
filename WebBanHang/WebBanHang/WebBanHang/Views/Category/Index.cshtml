@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WebBanHang.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<style>
+    .title_box_center {
+        height: 56px;
+        line-height: 40px;
+        color: #fff;
+        padding-right: 10px;
+        border-bottom: solid 2px #ce0707;
+    }
+
+        .title_box_center .h_title {
+            float: left;
+            color: #fff;
+            padding-left: 15px;
+            line-height: 42px;
+            background-color: red;
+            padding-right: 40px;
+            border-top-right-radius: 60px;
+            margin-top: 14px;
+            margin-left: 0px;
+        }
+
+    .login_home {
+        text-align: center;
+        width: 999px;
+        margin-left: 177px;
+    }
+</style>
+<div class="login">
+
+    <div class="login_home">
+        <div class="title_box_center">
+            <h1 class="h_title">Doanh mục sản phẩm</h1>
+        </div>
+        <div style=" height: auto; margin-left: 0px; text-align: center; margin-bottom: -20px;">
+
+
+            <table class="table success">
+               
+
+                @foreach (var item in Model)
+                {
+                    <tr class="btn-group-sm">
+
+                        <td>
+                            <h4 style="color:#707070; text-align:center">@Html.DisplayFor(modelItem => item.NameCategory)</h4>
+                        </td>
+                        <td>
+
+                            <button type="button" style="border-radius: 8px;background-color: wheat;"><a style="color:white;">@Html.ActionLink("Xem sản phẩm", "Details", new { id = item.IDCategory })</a> </button>
+
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

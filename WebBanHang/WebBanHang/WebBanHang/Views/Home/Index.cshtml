@@ -1,0 +1,232 @@
+﻿@model  IEnumerable<WebBanHang.Models.Product>
+
+@{
+    ViewBag.Title = "Home Page";
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+}
+
+
+
+@*<div class="row">
+        <div class="col-sm-3">
+            <div class="list-group">
+                <a href="#" class="list-group-item active list-group-itemsuccess">CATEGORIES</a>
+                <a href="#" class="list-group-item list-group-item-danger">PHONE</a>
+                <a href="#" class="list-group-item list-group-item-info">LAPTOP</a>
+                <a href="#" class="list-group-item list-group-item-warning">TELEVISION</a>
+            </div>
+            <div class="list-group">
+                <a href="#" class="list-group-item active list-group-itemsuccess"> BRANDS</a>
+                <a href="#" class="list-group-item list-group-item-danger">SAMSUNG</a>
+                <a href="#" class="list-group-item list-group-item-info">SONY</a>
+                <a href="#" class="list-group-item list-group-item-warning">APPLE</a>
+            </div>
+        </div>
+
+    </div>*@
+<head>
+    <style>
+        .scrollbar {
+            background-color: #F5F5F5;
+            float: left;
+            height: 549px;
+            margin-bottom: 25px;
+            margin-left: 0px;
+            margin-top: 1px;
+            width: 1209px;
+            overflow-y: scroll;
+        }
+
+        .force-overflow {
+            min-height: 450px;
+        }
+
+        .card {
+            text-align: center;
+            width: 250px;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 #3343b7;
+            transition: 0.3s;
+        }
+
+        #margin-card {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<aside class="">
+    <section class="tintuc">
+        <iframe width="419" height="250" src="https://www.youtube.com/embed/Uo8RfqPo064" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h3> TIN TỨC MỚI NHẤT </h3>
+        <ul>
+            <li>
+                <a href="#" title="PCAP ASUS APEX LEGENDS - Chiến mượt game HOT mà chỉ 11 triệu">
+                    <img src="/Content/Images/left1.jpg"> <i class="fas fa-angle-double-right"></i>
+                    PCAP ASUS APEX LEGENDS - Chiến mượt game HOT mà chỉ 11 triệu
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Ghế ngồi chơi game giá 99 triệu ở Việt Nam">
+                    <img src="/Content/Images/left2.jpg"> <i class="fas fa-angle-double-right"></i>
+                    Ghế ngồi chơi game giá 99 triệu ở Việt Nam
+                </a>
+            </li>
+
+            <li>
+                <a href="#" title="Review GALAX RTX 2070 EX 1 Click Series ">
+                    <img src="/Content/Images/left3.jpg"> <i class="fas fa-angle-double-right"></i>
+                    Review GALAX RTX 2070 EX 1 Click Series
+                </a>
+            </li>
+
+            @*<li>
+                    <a href="#" title=" Razer ra mắt laptop Blade Stealth Quartz Pink Edition ">
+                        <img src="/Content/Images/left4.jpg"> <i class="fas fa-angle-double-right"></i>
+                        Razer ra mắt laptop Blade Stealth Quartz Pink Edition
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" title=" TOP 5 PHÍM CƠ ĐÁNG MUA NHẤT DỊP TẾT 2019 ">
+                        <img src="/Content/Images/left5.jpg"> <i class="fas fa-angle-double-right"></i>
+                        TOP 5 PHÍM CƠ ĐÁNG MUA NHẤT DỊP TẾT 2019
+                    </a>
+                </li>*@
+        </ul>
+    </section>
+
+    <div class="slide">
+        <div class="dieuhuong">
+            <i class="fas fa-angle-left" onclick="Back();"></i>
+            <i class="fas fa-angle-right" onclick="Next();"></i>
+        </div>
+
+        <div class="chuyen-slide">
+            <img src="/Content/Images/slider1.jpg" />
+            <img src="/Content/Images/slider2.jpg" />
+            <img src="/Content/Images/slider3.jpg" />
+            <img src="/Content/Images/slider4.jpg" />
+            <img src="/Content/Images/slider5.jpg" />
+            <img src="/Content/Images/slider6.jpg" />
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var KichThuoc = document.getElementsByClassName("slide")[0].clientWidth;
+        var ChuyenSlide = document.getElementsByClassName("chuyen-slide")[0];
+        var Img = ChuyenSlide.getElementsByTagName("img");
+        var Max = KichThuoc * Img.length;
+        Max -= KichThuoc;
+        var Chuyen = 0;
+        function Next() {
+            if (Chuyen < Max)
+                Chuyen += KichThuoc;
+            else
+                Chuyen = 0;
+            ChuyenSlide.style.marginLeft = '-' + Chuyen + 'px';
+        }
+
+        function Back() {
+            if (Chuyen == 0)
+                Chuyen = Max;
+            else
+                Chuyen -= KichThuoc;
+            ChuyenSlide.style.marginLeft = '-' + Chuyen + 'px';
+        }
+
+        setInterval(function () {
+            Next();
+        }, 4000)
+    </script>
+
+    <article class="center">
+        <h2> Sản phẩm mới nhất </h2>
+        <div class="scrollbar">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-sm-5 col-md-5 col-lg-3" id="margin-card">
+                        <div class="card">
+                            <a><img src="@Url.Content(item.Images)" style="height:200px; width:200px" /></a>
+                            <img src="https://hanoicomputercdn.com/media/news/1701_hot.gif" class="hot" height: 33px; margin-left: 142px; margin-top: -397px;" />
+                            <H4>@Html.DisplayFor(model => item.NameProduct)</H4>
+                            <p class="strike"> <strike> @Html.DisplayFor(model => item.UnitPrice) <sup>đ</sup></strike> </p>
+                            <p class="giatien">@Html.DisplayFor(model => item.UnitPrice)<sup><u>đ</u></sup> </p>
+                            <a class="btn btn-danger" href="/Product/Details/@item.IDProduct">
+                                Chi tiết
+                            </a>
+                            <a href="/ShoppingCart/AddToCart/@item.IDProduct"><img src="@Url.Content("~/Content/Images/cart.png")" style="height:40px; width:40px;" /></a>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+
+
+
+        @*<div class="sp2">
+                <a href="#" title="Laptop Asus X507UA i3 7020U (EJ727T)">
+                    <img src="Images\sp2.jpg" />
+                </a>
+                <img src="https://hanoicomputercdn.com/media/news/1701_hot.gif" class="hot" />
+                <h4> Laptop Asus X507UA i3 7020U/Win10 (EJ727T) </h4>
+                <p class="strike"> <strike> 11.590.000 <sup>đ</sup></strike> </p>
+                <p class="giatien"> 10.590.000<sup><u>đ</u></sup> </p>
+                <button type="button" class="btn btn-danger" id="button"> Mua ngay </button>
+            </div>
+
+            <div class="sp3">
+                <a href="#" title="Laptop Lenovo Ideapad 130 14IKB i3 7020U">
+                    <img src="Images\sp3.jpg" />
+                </a>
+                <img src="https://hanoicomputercdn.com/media/news/1701_hot.gif" class="hot" />
+                <h4> Laptop Lenovo Ideapad 130 7020U (81H60016VN) </h4>
+                <p class="strike"> <strike> 9.990.000 <sup>đ</sup></strike> </p>
+                <p class="giatien"> 8.990.000<sup><u>đ</u></sup> </p>
+                <button type="button" class="btn btn-danger" id="button"> Mua ngay </button>
+            </div>
+
+            <div class="sp5">
+                <a href="#" title="Laptop HP Pavilion X360 14-ba062TU 2GV24PA">
+                    <img src="Images\sp5.jpg" />
+                </a>
+                <img src="https://hanoicomputercdn.com/media/news/1701_hot.gif" class="hot" />
+                <h4> Laptop HP Pavilion X360 14-ba062TU 2GV24PA </h4>
+                <p class="strike"> <strike> 12.790.000 <sup>đ</sup></strike> </p>
+                <p class="giatien"> 11.790.000<sup><u>đ</u></sup></p>
+                <button type="button" class="btn btn-danger" id="button"> Mua ngay </button>
+            </div>
+
+            <div class="sp4">
+                <a href="#" title="Laptop HP 15 da0054TU i3 7020U (4ME68PA)">
+                    <img src="Images\sp4.jpg" />
+                </a>
+                <img src="https://hanoicomputercdn.com/media/news/1701_hot.gif" class="hot" />
+                <h4> Laptop HP 15 da0054TU i3 7020U (4ME68PA) </h4>
+                <p class="strike"> <strike> 11.990.000 <sup>đ</sup></strike> </p>
+                <p class="giatien"> 10.990.000<sup><u>đ</u></sup> </p>
+                <button type="button" class="btn btn-danger" id="button"> Mua ngay </button>
+            </div>
+
+            <div class="sp6">
+                <a href="#" title="Laptop Dell G3 Gaming Inspiron 3579 G5I58564">
+                    <img src="Images\sp6.jpg" />
+                </a>
+                <img src="https://hanoicomputercdn.com/media/news/1701_hot.gif" class="hot" />
+                <h4> Laptop Dell G3 Gaming Inspiron 3579 G5I58564 </h4>
+                <p class="strike"> <strike> 21.290.000 <sup>đ</sup></strike> </p>
+                <p class="giatien"> 20.290.000<sup><u>đ</u></sup> </p>
+                <button type="button" class="btn btn-danger" id="button"> Mua ngay </button>
+            </div>*@
+    </article>
+    @*<div style="text-align:center">
+            <h2>Congratulation</h2>
+            <h3>Email: @Session["Email"].ToString()</h3>
+            <p>Login Seccessfull!</p>
+            <a class="btn btn-primary" href="@Url.Action("Logout", "Auth")">LogOut</a>
+        </div>*@
+</aside>

@@ -1,0 +1,51 @@
+﻿@model WebBanHang.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodeCus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodeCus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email_Cus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email_Cus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address_Cus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address_Cus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone_Cus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone_Cus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IDCus }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

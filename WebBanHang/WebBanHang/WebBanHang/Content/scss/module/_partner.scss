@@ -1,0 +1,46 @@
+﻿.partner {
+    border-top: 1px solid $colorDarkBlue;
+    &__home {
+        padding: 5px 25px 20px 25px;
+    }
+}
+.owl-carousel .owl-nav.disabled {    
+    display: block;
+    margin-top: 0;
+}
+.owl-prev,
+.owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    outline: none;
+    z-index: 5;
+
+    &::after {       
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-family: fontawesome;
+    }
+
+    span {
+        display: none;
+    }
+}
+.owl-prev {
+    left: -20px;
+
+    &::after {
+        content: "\f053";
+    }
+}
+.owl-next {
+    right: -20px;
+
+    &::after {
+        content: "\f054";
+    }
+}

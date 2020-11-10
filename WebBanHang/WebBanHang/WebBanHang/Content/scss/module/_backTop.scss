@@ -1,0 +1,38 @@
+﻿.backTop {
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #3794d6;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transform: translateX(70px);
+    transition: .4s;
+    visibility: hidden;
+    z-index: 777;
+
+    & a {
+        position: relative;
+        display: block;
+        height: 50px;
+        line-height: 50px;
+    }
+
+    & i {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 25px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+}
+.backTop.active {
+    transform: translateX(0);
+    transition: .4s;
+    visibility: visible;
+}

@@ -1,0 +1,103 @@
+﻿
+
+@model  IEnumerable<WebBanHang.Models.Product>
+
+@{
+    ViewBag.Title = "Home Page";
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+
+<head>
+    <style>
+        .scrollbar {
+            background-color: #F5F5F5;
+            float: left;
+            height: 549px;
+            margin-bottom: 25px;
+            margin-left: 0px;
+            margin-top: 40px;
+            width: 997px;
+            ;
+            overflow-y: scroll;
+        }
+
+        .force-overflow {
+            min-height: 450px;
+        }
+
+        .card {
+            text-align: center;
+            width: 250px;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        #margin-card {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<aside class="main">
+    <div style=" height: 54px; font-size: 35px; width: 1183px; background-color: red; margin-left: 74px; text-align: center; color: white;">
+        Chào mừng ADMIN
+    </div>
+
+
+    <div class="slide" >
+        <div class="dieuhuong">
+            <i class="fas fa-angle-left" onclick="Back();"></i>
+            <i class="fas fa-angle-right" onclick="Next();"></i>
+        </div>
+
+        <div class="chuyen-slide">
+        
+            <img src="/Content/Images/admin2.jpg" />
+            <img src="/Content/Images/admin3.jpg" />
+            <img src="/Content/Images/admin4.jpg" />
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var KichThuoc = document.getElementsByClassName("slide")[0].clientWidth;
+        var ChuyenSlide = document.getElementsByClassName("chuyen-slide")[0];
+        var Img = ChuyenSlide.getElementsByTagName("img");
+        var Max = KichThuoc * Img.length;
+        Max -= KichThuoc;
+        var Chuyen = 0;
+        function Next() {
+            if (Chuyen < Max)
+                Chuyen += KichThuoc;
+            else
+                Chuyen = 0;
+            ChuyenSlide.style.marginLeft = '-' + Chuyen + 'px';
+        }
+
+        function Back() {
+            if (Chuyen == 0)
+                Chuyen = Max;
+            else
+                Chuyen -= KichThuoc;
+            ChuyenSlide.style.marginLeft = '-' + Chuyen + 'px';
+        }
+
+        setInterval(function () {
+            Next();
+        }, 4000)
+    </script>
+
+    <article class="center" style="color:cadetblue; text-align:center;">
+        <h4><strong>Nếu cần hỗ trợ kỹ thuật, quý khách vui lòng thực hiện một trong ba cách sau:</strong>></h4>
+        <p>1.Gửi mail cho phòng kỹ thuật: kienreno932@gmail.com</p>
+        <p>2.Gọi số hotline hỗ trợ khách hàng: 0865097214</p>
+        <p>3.Yêu cầu hỗ trợ qua zalo: 0865097214</p>
+    </article>
+ 
+</aside>
+

@@ -1,0 +1,88 @@
+﻿@model WebBanHang.Models.Cart
+
+@{
+    ViewBag.Title = "ShowToCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <div style="width:1000px; height:auto;background-color:white; margin-top: 1px;margin-left:192px;margin-bottom:-20px">
+        <h2 style="text-align:center; color:red;"><strong>ShowToCart</strong></h2>
+        @if (Model != null)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Sum</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Items)
+                    {
+                        decimal total = item._shopping_quantity * item._shopping_product.UnitPrice.Value;
+                        <tr>
+                            <td>@Html.DisplayFor(model => item._shopping_product.NameProduct)</td>
+                            <td>
+                                <img src="@Url.Content(item._shopping_product.Images)" style="height:50px; width:50px" />
+                            </td>
+                            <td>@Html.DisplayFor(model => item._shopping_product.UnitPrice)</td>
+                            <td>
+                                @using (Html.BeginForm("Update_Quantity_Cart", "ShoppingCart"))
+                                {
+                                    <input type="hidden" value="@item._shopping_product.IDProduct" name="ID_Product" />
+                                    <input type="number" value="@item._shopping_quantity" name="Quantity" />
+                                    <input type="submit" value="Update Quantity" />
+                                }
+
+                            </td>
+                            <td>@total</td>
+                            <td>
+                                <a href="/ShoppingCart/RemoveCart/@item._shopping_product.IDProduct">Remove</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2"></td>
+                        <td colspan="4" style="text-align:center">
+                            @using (Html.BeginForm("CheckOut", "ShoppingCart"))
+                            {
+                                <table style="border-collapse:separate; border-spacing:5px;">
+                                    <tr>
+                                        <td>
+                                            Code Customer:
+                                        </td>
+                                        <td>
+                                            <input type="number" name="CodeCustomer" required />
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Address Delivery:</td>
+                                        <td><input type="text" name="Address_Delivery" required /></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="@Url.Action("Create", "Customer")" class="btn btn-success">Register</a>
+                                        </td>
+                                        <td>
+                                            <input type="submit" value="CheckOut" class="btn btn-success" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" style="text-align:right;color:red;"><strong>sum total:</strong> @Model.Total_Money()</td>
+                    </tr>
+                    <a href="@Url.Action("Index", "Home")">Continue to Shopping</a>
+                </tfoot>
+            </table>
+           
+        }
+        </div>
+

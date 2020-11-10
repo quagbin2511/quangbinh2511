@@ -1,0 +1,89 @@
+﻿@using WebBanHang.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+
+    <style>
+        .title_box_center {
+            height: 56px;
+            line-height: 40px;
+            color: #fff;
+            padding-right: 10px;
+            border-bottom: solid 2px #ce0707;
+        }
+
+            .title_box_center .h_title {
+                float: left;
+                color: #fff;
+                padding-left: 15px;
+                line-height: 42px;
+                background-color: red;
+                padding-right: 40px;
+                border-top-right-radius: 60px;
+                margin-top: 14px;
+                margin-left: 0px;
+            }
+
+        .login_home {
+            text-align: center;
+            width: 999px;
+            margin-left: 177px;
+        }
+    </style>
+    <div class="login">
+
+        <div class="login_home">
+            <div class="title_box_center">
+                <h1 class="h_title">Đăng Nhập</h1>
+            </div>
+            <section>
+                @Html.ValidationMessage("CredentialError", new { style = "color: red" })
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-9">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox" style="margin-left: -158px;">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-danger">Đăng nhập</button>
+                        <a href="~/Account/Register" class="btn btn-danger">Đăng Ký</a>
+                    </div>
+                    @* Enable this once you have account confirmation enabled for password reset functionality
+            <p>
+                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+            </p>*@
+                }
+            </section>
+            <p style=" padding: 30px 0px 10px; font-size: small ; color: rgb(88, 88, 88);">Bạn chưa là thành viên</p>
+            <p>Hãy đăng ký là thành viên để hưởng nhiều lợi ích và đặt mua hàng dễ dàng hơn.</p>
+        </div>
+    </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "CreateKH";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@model WebBanHang.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<style>
+    .title_box_center {
+        height: 56px;
+        line-height: 40px;
+        color: #fff;
+        padding-right: 10px;
+        border-bottom: solid 2px #ce0707;
+    }
+
+        .title_box_center .h_title {
+            float: left;
+            color: #fff;
+            padding-left: 15px;
+            line-height: 42px;
+            background-color: red;
+            padding-right: 40px;
+            border-top-right-radius: 60px;
+            margin-top: 14px;
+            margin-left: 0px;
+        }
+
+    .form-register {
+        text-align: center;
+        width: 999px;
+        margin-left: 177px;
+    }
+</style>
+<div class="register">
+    <div class="form-register">
+        <div class="title_box_center">
+            <h1 class="h_title">Tạo tài khoản khách hàng</h1>
+        </div>
+        @using (Html.BeginForm("CreateKH", "User", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+           
+            <hr />
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                <div class="col-md-9">
+                    @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                <div class="col-md-9">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                <div class="col-md-9">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Address, new { @class = "col-md-2 control-label" })
+                <div class="col-md-9">
+                    @Html.PasswordFor(m => m.Address, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" style=" border: 0; font-size: 21px; display: inline-block; cursor: pointer; background: #db0006; color: #fff; margin: 0; font-weight: 700; border-radius: 3px;">Tạo</button>
+                <a href="~/User/Index" class="btn btn-primary" style="margin-bottom:6px;">Trở về</a>
+            </div>
+           
+        }
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

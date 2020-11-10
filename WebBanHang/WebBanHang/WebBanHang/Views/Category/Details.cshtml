@@ -1,0 +1,61 @@
+﻿@model WebBanHang.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var getlist = ViewData["LItem"] as IEnumerable<WebBanHang.Models.Product>;
+
+}
+
+
+    <style>
+        .card {
+            text-align: center;
+            width: 250px;
+            border-radius: 5px;
+            padding: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        #margin-card {
+            margin-top: 20px;
+        }
+    </style>
+    <div style="width:1000px; height:auto;background-color:white; margin-top: -9px;margin-left:181px;margin-bottom:-20px">
+        <h2 style="color:red; text-align:center">Danh sách sản phẩm thuộc @Html.DisplayFor(model => model.NameCategory) </h2>
+        
+        <hr/>
+        
+
+        <div class="row">
+
+            @foreach (var item in getlist)
+            {
+
+                <div class="col-sm-5 col-md-5 col-lg-3" id="margin-card">
+                    <div class="card">
+                        
+                        <a><img src="@Url.Content(item.Images)" style="height:200px; width:200px" /></a>
+                        <img src="https://hanoicomputercdn.com/media/news/1701_hot.gif" class="hot" />
+
+                        <H4>@Html.DisplayFor(model => item.NameProduct)</H4>
+                        <p class="strike"> <strike> @Html.DisplayFor(model => item.UnitPrice) <sup>đ</sup></strike> </p>
+                        <p class="giatien">@Html.DisplayFor(model => item.UnitPrice)<sup><u>đ</u></sup> </p>
+                        <a class="btn btn-danger" href="/Product/Details/@item.IDProduct">
+                            Chi tiết
+                        </a>
+                        <img src="@Url.Content("~/Content/Images/cart.png")" style="height:40px; width:40px;" />
+                    </div>
+
+                </div>
+            }
+           
+        </div>
+        
+    </div>
+<p>
+  
+    <button type="button" style="border-radius: 8px;background-color: wheat;color: white;margin-left: 623px;
+    margin-top: auto;">@Html.ActionLink("Back to List", "Index")</button>
+</p>

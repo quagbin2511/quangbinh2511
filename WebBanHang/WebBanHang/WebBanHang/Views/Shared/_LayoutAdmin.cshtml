@@ -1,0 +1,148 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mua-Bán thiết bị điện tử</title>
+    <link rel="shortcut icon" href="/Content/Images/iconmaytinh.png" />
+
+
+
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+    <link href="~/Styles/TrangChuAD.css" rel="stylesheet" />
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <!-- Latest compiled JavaScript -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/scripts.js"></script>
+
+</head>
+<style>
+    div.scrollmenu {
+        background-color: #333;
+        overflow: auto;
+        white-space: nowrap;
+    }
+
+        div.scrollmenu a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+        }
+
+            div.scrollmenu a:hover {
+                background-color: #777;
+            }
+</style>
+<body>
+    <header id="banner">
+        <img src="~/Content/Images/panner1.png" />
+    </header>
+    <div id="menu">
+        <div id="imgs">
+            <a href="/Home/Index"><img src="/Content/Images/dmx.png" /></a>
+        </div>
+        <div id="search">
+            @using (Html.BeginForm("Index", "Product", FormMethod.Get))
+            {
+                <ul class="drop">
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class=""></i> Nâng cao
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu ">
+                            <li>
+                                <a>@Html.RadioButton("seachBy", "NameProduct")<text>Tìm theo tên sản phẩm</text></a>
+                                <a>@Html.RadioButton("seachBy", "Available")<text>Tình trạng sản phẩm</text></a>
+                                <a>@Html.RadioButton("seachBy", "None", true)<text>None</text></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <button type="submit" class="i fas fa-search fa-2x" value="Seach"></button>
+                <input type="text" class="search1" placeholder="Bạn tìm gì...." />
+            }
+
+        </div>
+        <div id="dangnhap">
+            <i class="fas fa-sign-in-alt"></i>
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "dndk" }))
+            {
+                @Html.AntiForgeryToken()
+
+
+                <a title="Đăng nhập" class="dndk" href="javascript:document.getElementById('logoutForm').submit()">Thoát</a>
+
+
+
+            }
+
+            @*<a href="/Account/LogOff" title="Đăng nhập" class="dndk"> Thoát</a>*@
+            <p><i class="fa fa-user-circle" aria-hidden="true"></i></p>
+            <a class="dndk1" style=" margin-left: 151px;"> @ViewBag.UserName</a>
+            @*Html.Partial("_LoginPartial")*@
+        </div>
+    </div>
+
+
+
+    @*<nav id="menu_top">
+        <ul>
+            <li class="dropdown">
+                <a href="/CategoryAdmin/Index" title="Danh mục sản phẩm" class="dropbtn"> <i class="fas fa-align-justify"></i> Danh mục sản phẩm </a>
+
+            <li>
+            <li><a href="/HomeAdmin/Index" title="Trang chủ" class="trangchu"><i class="fas fa-home"></i> Trang chủ </a></li>
+            <li><a href="/OrderDetails/Index" title="Tin tức" class="tintuc"><i class="far fa-clone"></i>Quản lý Đơn Hàng </a></li>
+            <li><a href="/ProductAdmin/Index" title="Sản phẩm - Dịch vụ" class="dichvu"><i class="far fa-clone"></i> Quản lý sản phẩm </a></li>
+
+            <li><a href="/User/Index" title="QLACCOUNT" class="lienhe"><i class="far fa-clone"></i> Quản lý Account </a></li>
+            <li><a href="/Role/Index" title="MANAGER ROLE" style=" width: 209px; text-align: center;"><i class="far fa-clone"></i> Quản Lý Quyền </a></li>
+            <li><a href="/Role/Index" title="MANAGER Customer" style=" width: 209px; text-align: center;"><i class="far fa-clone"></i> Quản Lý order khách hàng  </a></li>
+
+        </ul>
+
+    </nav>*@
+    <div class="scrollmenu">
+    
+            <a href="/CategoryAdmin/Index" title="Danh mục sản phẩm" class="dropbtn"> <i class="fas fa-align-justify"></i> Danh mục sản phẩm </a>
+
+        
+        <a href="/HomeAdmin/Index" title="Trang chủ" class="trangchu"><i class="fas fa-home"></i> Trang chủ </a>
+       <a href="/OrderDetails/Index" title="Tin tức" class="tintuc"><i class="far fa-clone"></i>Quản lý Đơn Hàng </a>
+        <a href="/ProductAdmin/Index" title="Sản phẩm - Dịch vụ" class="dichvu"><i class="far fa-clone"></i> Quản lý sản phẩm </a>
+
+        <a href="/User/Index" title="QLACCOUNT" class="lienhe"><i class="far fa-clone"></i> Quản lý Account </a>
+        <a href="/Role/Index" title="MANAGER ROLE" style=" width: 209px; text-align: center;"><i class="far fa-clone"></i> Quản Lý Quyền </a>
+        <a href="/Customer/Index" title="Order Customer MANAGER" style=" width: 209px; text-align: center;"><i class="far fa-clone"></i> Quản Lý order khách hàng  </a>
+    </div>
+    <div class="main">
+        @RenderBody()
+    </div>
+    <footer class="footer">
+        <div class="left">
+            <img src="~/Content/Images/admin1.jpg" style="height: 117px; margin-top: 54px;" />
+        </div>
+
+    </footer>
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

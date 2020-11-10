@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebBanHang.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+    <div style=" width: 1000px; height: auto; margin-top: -9px; margin-left: 155px; text-align: center; margin-bottom: -20px;">
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table table-condensed" style="text-align:center">
+            <tr>
+
+
+                <th style=" color:red">
+                    <h1>Doanh mục sản phẩm</h1>
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr class="danger">
+
+                    <td>
+                        <h4 style="color:#707070; text-align:center">@Html.DisplayFor(modelItem => item.NameCategory)</h4>
+                    </td>
+                    <td>
+
+                        <button type="button" style="border-radius: 8px;background-color: whitesmoke;"><a style="color:white;">@Html.ActionLink("Edit", "Edit", new { id = item.IDCategory })</a> </button>
+                        <button type="button" style="border-radius: 8px;background-color: whitesmoke;"><a style="color:white;">@Html.ActionLink("Details", "Details", new { id = item.IDCategory })</a> </button>
+
+                        <button type="button" style="border-radius: 8px;background-color: whitesmoke;"><a style="color:white;">@Html.ActionLink("Delete", "Delete", new { id = item.IDCategory })</a> </button>
+
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+

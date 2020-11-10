@@ -1,0 +1,166 @@
+﻿
+
+
+.main {
+    width: 100%;
+    height: auto;
+}
+
+    .main .center {
+        width: 54%;
+        height: 1036px;
+        float: left;
+        border: 1px solid #0099FF;
+        margin-top: 1px;
+        background-color: #FFF;
+    }
+
+        .main .center h3 {
+            text-align: center;
+            color: #0099FF;
+            height: 20px;
+            margin-top: 5px;
+            border-bottom: 1px solid #0099FF;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .main .center ul li {
+            list-style-type: none;
+            clear: left;
+            border-bottom: 1px solid #0099FF;
+            float: left;
+            margin-bottom: 5px;
+            width: 724px;
+        }
+
+            .main .center ul li:last-child {
+                border-bottom: none;
+            }
+
+        .main .center img {
+            width: 120px;
+            height: 80px;
+            margin-left: 10px;
+            float: left;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+
+        .main .center ul li a h2 {
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 6px;
+            margin-bottom: 4px;
+            font-weight: bold;
+            width: 721px;
+        }
+
+    .main .tintuc {
+        width: 32%;
+        height: 454px;
+        background-color: #FFF;
+        margin-top: 1px;
+        border: 1px solid #0099FF;
+        border-bottom: none;
+        float: left;
+        margin-left: 1px;
+    }
+
+    .main .center a:hover {
+        color: red;
+    }
+
+    .main .tintuc ul {
+        padding: 0px;
+        margin: 0px;
+    }
+
+        .main .tintuc ul li {
+            list-style-type: none;
+            border-bottom: 1px solid #0099FF;
+            float: left;
+            margin-bottom: 4px;
+        }
+
+    .main .tintuc h3 {
+        text-align: center;
+        color: #0099FF;
+        height: 20px;
+        margin-top: 5px;
+        border-bottom: 1px solid #0099FF;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .main .tintuc img {
+        width: 110px;
+        height: 70px;
+        margin-left: 5px;
+        margin-top: 2px;
+        float: left;
+        margin-bottom: 7.4px;
+    }
+
+    .main .tintuc ul li a {
+        color: black;
+        display: block;
+        text-decoration: none;
+        margin-top: 0px;
+        font-size: 13px;
+        text-align: left;
+        text-indent: 5px;
+    }
+
+    .main .tintuc i {
+        color: red;
+    }
+
+    .main .tintuc ul li a:hover {
+        color: red;
+    }
+
+    .main .ttlq {
+        width: 32%;
+        height: 535px;
+        background-color: #FFF;
+        margin-top: 1px;
+        border: 1px solid #0099FF;
+        float: left;
+        margin-left: 1px;
+    }
+
+        .main .ttlq h3 {
+            text-align: center;
+            color: #0099FF;
+            height: 20px;
+            margin-top: 5px;
+            border-bottom: 1px solid #0099FF;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .main .ttlq img {
+            width: 110px;
+            height: 70px;
+            margin-left: 5px;
+            margin-top: 5px;
+            float: left;
+            margin-bottom: 20.4px;
+        }
+
+        .main .ttlq ul {
+            padding: 0px;
+            margin: 0px;
+        }
+
+            .main .ttlq ul li {
+                list-style-type: none;
+                border-bottom: 1px solid #0099FF;
+                float: left;
+                margin-bottom: 4px;
+            }
+
+                .main .ttlq ul li:last-child {
+                    border-bottom: none;
+                }

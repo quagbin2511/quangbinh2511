@@ -1,0 +1,239 @@
+﻿
+.main {
+    width: 1000px;
+    height: auto;
+}
+
+.center {
+    width: 1190px;
+    height: 1900px;
+    border: 1px solid #0099FF;
+    background: white;
+    margin-top: 1px;
+    float: left;
+}
+
+    .center h3 {
+        color: #0099FF;
+        border-bottom: 1px solid #0099FF;
+        background: white;
+        text-align: center;
+        margin: 0 auto;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 2px;
+    }
+
+    .center .hinhanh {
+        width: 500px;
+        height: 320px;
+        float: left;
+    }
+
+        .center .hinhanh img {
+            width: 450px;
+            height: 300px;
+            margin-left: 10px;
+            margin-top: 10px;
+        }
+
+    .center .thongtin {
+        width: 498px;
+        height: 80px;
+        float: left;
+        margin-left: 101px;
+    }
+
+        .center .thongtin h4 {
+            color: #333;
+            margin-left: 10px;
+            font-size: 20px;
+        }
+
+        .center .thongtin p.giatien {
+            color: #e00;
+            font-weight: bold;
+            font-size: 20px;
+            margin-left: 106px;
+        }
+
+    .center .thongtin1 {
+        width: 497px;
+        height: 240px;
+        float: left;
+        margin-left: 101px;
+        border: 1px solid #CCC;
+        border-radius: 20px;
+    }
+
+        .center .thongtin1 h5 {
+            font-size: 20px;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+
+        .center .thongtin1 i {
+            color: #288ad6;
+            margin-left: 10px;
+            margin-bottom: 15px;
+        }
+
+        .center .thongtin1 span {
+            color: #333;
+            font-size: 15px;
+            margin-left: 5px;
+        }
+
+    .center .slide {
+        width: 600px;
+        height: 333px;
+        float: left;
+        margin-top: 10px;
+        position: relative;
+        overflow: hidden;
+        margin-left: 10px;
+    }
+
+        .center .slide:hover .dieuhuong {
+            display: block;
+        }
+
+    .center .chuyen-slide {
+        width: 9999px;
+        transition: all 1.3s;
+    }
+
+    .center .slide img {
+        width: 600px;
+        height: 333px;
+        float: left;
+    }
+
+    .center .chuyen-slide {
+        width: 9999px;
+        transition: all 1.3s;
+    }
+
+    .center .dieuhuong {
+        position: absolute;
+        color: white;
+        display: none;
+        font-size: 55px;
+        top: 40%;
+        padding-left: 10px;
+    }
+
+        .center .dieuhuong i:last-child {
+            position: relative;
+            left: 510px;
+        }
+
+    .center .thongso {
+        width: 388px;
+        height: 333px;
+        float: left;
+        margin-top: 10px;
+    }
+
+        .center .thongso h4.tskt {
+            color: red;
+            text-align: center;
+        }
+
+        .center .thongso h5 {
+            color: #333;
+            font-size: 15px;
+            margin-left: 30px;
+            line-height: 1.9;
+        }
+
+            .center .thongso h5 span {
+                color: #288ad6;
+            }
+
+    .center .gioithieu {
+        width: 998px;
+        height: 2200px;
+        float: left;
+    }
+
+        .center .gioithieu h1 {
+            color: red;
+            font-size: 30px;
+            margin-left: 10px;
+            margin-bottom: 30px;
+        }
+
+        .center .gioithieu h4 {
+            font-size: 20px;
+            margin-left: 10px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .center .gioithieu p {
+            margin-left: 10px;
+            font-size: 18px;
+            line-height: 2;
+        }
+
+            .center .gioithieu p span {
+                color: #50a8e3;
+            }
+
+        .center .gioithieu img {
+            width: 958px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+        }
+
+    .center textarea {
+        width: 700px;
+        margin-left: 20px;
+        border: 1px solid #dadada;
+        padding: 10px 1.5%;
+        border-radius: 4px;
+    }
+
+    .center .button {
+        width: 700px;
+        height: 40px;
+        margin-left: 20px;
+    }
+
+        .center .button button {
+            float: right;
+            width: 70px;
+        }
+
+    .center .phanhoi {
+        width: 998px;
+        height: 365px;
+        float: left;
+        margin-left: 10px;
+    }
+
+    .center p.name {
+        font-weight: bold;
+        font-size: 15px;
+        margin: 20px 0px 0px 0px
+    }
+
+        .center p.name i {
+            color: #52b858;
+        }
+
+    .center p span.binhluan {
+        color: #52b858;
+        font-style: italic;
+        font-size: 15px;
+    }
+
+    .center i {
+        color: #ff9727;
+    }
+
+    .center a {
+        text-decoration: none;
+    }
+

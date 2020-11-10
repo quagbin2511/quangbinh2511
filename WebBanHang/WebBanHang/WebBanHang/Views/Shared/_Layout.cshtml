@@ -1,0 +1,229 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Mua-Bán thiết bị điện tử</title>
+    <link rel="shortcut icon" href="/Content/Images/iconmaytinh.png" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <script src="~/Content/scripts/social.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Styles/TrangChu01.css" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <!-- Latest compiled JavaScript -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+    
+</head>
+<body>
+    <header id="banner">
+        <img src="~/Content/Images/banner_top.png" />
+    </header>
+    <div id="menu">
+        <div id="imgs">
+            <a href="/Home/Index"><img src="/Content/Images/dmx.png" /></a>
+        </div>
+        <div id="search">
+            @using (Html.BeginForm("Index", "Product"))
+            {
+                <ul class="drop">
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <i class=""></i> Nâng cao
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu ">
+                            <li>
+                                <a>@Html.RadioButton("seachBy", "NameProduct")<text>Tìm theo tên sản phẩm</text></a>
+                                <a>@Html.RadioButton("seachBy", "Category")<text>Tìm theo loại sản phẩm</text></a>
+                                <a>@Html.RadioButton("seachBy", "Available")<text>Tình trạng sản phẩm</text></a>
+                                <a>@Html.RadioButton("seachBy", "None", true)<text>None</text></a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <button type="submit" class="i fas fa-search fa-2x" value="Seach"></button>
+                @*<input type="text" class="search1" placeholder="Bạn tìm gì...." id="seach" />*@
+                <input class="search1" placeholder="Bạn tìm gì...." id="seach" name="seach" type="text" value="">
+
+            }
+            @*<div style="text-align:center">
+                    @using (Html.BeginForm("Index", "Product"))
+                    {
+                        <b> Sear by: </b> @Html.RadioButton("seachBy", "NameProduct")<text>Name Product</text>
+                        @Html.RadioButton("seachBy", "Available")<text>Available</text>
+                        @Html.RadioButton("seachBy", "None", true)<text>None</text>
+                        @Html.TextBox("seach")
+                        <input type="submit" value="Seach" />
+                    }
+                </div>*@
+        </div>
+        <div id="dangnhap">
+            @*<i class="fas fa-sign-in-alt"></i>
+                <a href="/Auth/Login" title="Đăng nhập" class="dndk"> Đăng nhập</a>
+                <p><i class="fa fa-user-circle" aria-hidden="true"></i></p>
+                <a href="/Auth/SignUp" title="Đăng ký" class="dndk1"> Đăng ký</a>
+                <a href="/Auth/LogOff" title="Đăng ký" class=""> thoát</a>*@
+
+            @Html.Partial("_LoginPartial")
+        </div>
+        <div id="khuyenmai">
+            <i class="fas fa-hand-holding-usd"></i>
+            <a href="#" title="Khuyến mãi" class="km"> Khuyến mãi </a>
+        </div>
+
+        <div id="online">
+            <i class="fa fa-eercast" aria-hidden="true"></i>
+            <a href="#" title="Tư vấn online" class="gt"> Tư vấn online </a>
+        </div>
+        <div>
+
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+
+
+
+            <li>
+                <div style="margin-top:20px;border-radius:5px;background-color:#2883bf;margin-right: 110px; width: 103px; height: 35px;">
+
+                    <a href="@Url.Action("ShowToCart", "ShoppingCart")"><img type="button" src="@Url.Content("~/Content/Images/cart.png")" style="height:30px; width:30px; margin-top:1px; margin-right:15px;"></a>
+                    @Html.Action("BagCart", "ShoppingCart")
+                    <p style="color:red;margin-left : 40px;margin-top: -23px;">Giỏ Hàng</p>
+                </div>
+
+
+
+
+            </li>
+        </ul>
+
+    </div>
+
+
+    @*<div class="menu_top">
+            <div class="w3-teal">
+
+
+                <div class="container-fluid" style="background-color:#0099ff">
+
+
+                    <ul class="nav navbar-nav">
+
+                        <li><a id="Index" href="/Home/Index" class="w3-bar-item w3-button">Trang Chủ</a></li>
+
+
+                        <li><a id="Contact" href="/Category/Index" class="w3-bar-item w3-button">Doanh mục sản phẩm</a></li>
+                        <li><a id="Contact" href="/Product/Index" class="w3-bar-item w3-button">Product</a></li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>@TempData["name"]  </li>
+                        <li>
+                            <div>
+
+                                <a href="@Url.Action("ShowToCart", "ShoppingCart")"><img type="button" src="@Url.Content("~/Content/Images/cart.png")" style="height:30px; width:30px; margin-top:1px; margin-right:15px;"></a>
+                                @Html.Action("BagCart", "ShoppingCart")
+                            </div>
+
+
+
+
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>*@
+
+    <nav id="menu_top">
+        <ul>
+            <li class="dropdown">
+                <a href="/Category/Index" title="Danh mục sản phẩm" class="dropbtn"> <i class="fas fa-align-justify"></i> Danh mục sản phẩm </a>
+
+            <li>
+            <li><a href="/Home/Index" title="Trang chủ" class="trangchu"><i class="fas fa-home"></i> Trang chủ </a></li>
+            <li><a href="/Home/Tintuc" title="Tin tức" class="tintuc"><i class="fas fa-newspaper"></i> Tin tức </a></li>
+            <li><a href="/Product/Index" title="Sản phẩm - Dịch vụ" class="dichvu"><i class="far fa-clone"></i> Sản phẩm - Dịch vụ </a></li>
+
+            <li><a href="/Home/Contact" title="Liên hệ" class="lienhe"><i class="fas fa-phone"></i> Liên hệ </a></li>
+
+            <li><a href="/Home/About" title="giới thiệu" class="gioithieu"><i class="fas fa-book-open"></i> giới thiệu </a></li>
+            @*<li><a href="/Home/About" title="giới thiệu" class="gioithieu"><i class="fas fa-book-open"></i> Giới thiệu </a></li>*@
+
+
+        </ul>
+
+    </nav>
+
+    <div class="main">
+        @RenderBody()
+    </div>
+   
+    <footer class="footer">
+        <div class="left">
+            <ul>
+                <li> <i class="fas fa-map-marker-alt"></i> <B>Địa chỉ:</B> 155 Sư Vạn Hạnh, phường 13, Quận 10, TP HCM. </li>
+                <li>
+                    <i class="fas fa-map-marked"></i>
+                    <a href="https://www.google.com/maps/place/155+S%C6%B0+V%E1%BA%A1n+H%E1%BA%A1nh,+Ph%C6%B0%E1%BB%9Dng+12,+Qu%E1%BA%ADn+10,+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/10.7760248,106.6652137,17z/data=!3m1!4b1!4m5!3m4!1s0x31752edba026cb75:0xb2a9aab49da1c58f!8m2!3d10.7760195!4d106.6674024?hl=vi-VN" title="Google Map" target="_blank">Google Map</a>
+                </li>
+                <li> <i class="fas fa-phone"></i> <B>Hotline:</B>0865097214 - 0123456789 </li>
+                <li> <i class="fab fa-facebook-square"></i> <a href="" title="Facebook" target="_blank"> Facebook</a></li>
+
+                <li> <i class="fas fa-headphones"></i> <B>Góp ý - khiếu nại:</B> 0865097214 </li>
+            </ul>
+        </div>
+    </footer>
+    <div class="social">
+        <button id="btn__social">
+            <i class="fa fa-plus" aria-hidden="true" id="social__times"></i>
+        </button>
+        <ol class="social__home">
+            <li class="social__item">
+                <a class="social__link" href="javascript:void(0)">
+                    <i class="fa fa-facebook social__link--fb"></i>
+                </a>
+            </li>
+            <li class="social__item">
+                <a class="social__link" href="javascript:void(0)">
+                    <i class="fa fa-instagram social__link--instagram"></i>
+                </a>
+            </li>
+            <li class="social__item">
+                <a class="social__link" href="javascript:void(0)">
+                    <i class="fa fa-twitter social__link--twitter"></i>
+                </a>
+            </li>
+            <li class="social__item">
+                <a class="social__link" href="javascript:void(0)">
+                    <i class="fa fa-youtube social__link--youtube"></i>
+                </a>
+            </li>
+        </ol>
+    </div>
+    <button class="backTop">
+        <a href="#back-top">
+            <i class="fa fa-arrow-circle-up"></i>
+        </a>
+    </button>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

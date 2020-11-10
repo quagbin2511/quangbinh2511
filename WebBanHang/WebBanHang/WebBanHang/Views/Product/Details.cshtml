@@ -1,0 +1,165 @@
+﻿@model WebBanHang.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    <link href="~/Styles/Chitietsanpham.css" rel="stylesheet" />
+}
+
+<style>
+    .scrollbar {
+        background-color: #F5F5F5;
+        float: left;
+        height: 299px;
+        margin-bottom: 25px;
+        margin-left: 0px;
+        margin-top: 1px;
+        width: 460px;
+        overflow-y: scroll;
+    }
+</style>
+ 
+
+<aside class="main">
+    <article class="center">
+        <h3> CHI TIẾT SẢN PHẨM </h3>
+        <div class="hinhanh">
+            <img src="@Url.Content(Model.Images)" ; />
+
+        </div>
+
+
+
+
+
+        <div class="thongtin">
+            <h4>@Html.DisplayFor(model => model.NameProduct) </h4>
+            <p class="giatien"> @Html.DisplayFor(model => model.UnitPrice)<sup><u>đ</u></sup> </p>
+            <a style="margin-left: 12px; margin-top: -72px; " class="btn btn-danger" href="/ShoppingCart/AddToCart/@Model.IDProduct">
+                Mua ngay
+            </a>
+        </div>
+
+        <div class="thongtin1">
+            <h5> Khuyến mãi </h5>
+            <i class="fas fa-check-circle"></i>
+            <span> Giảm thêm 3% (220.000<sup><u>đ</u></sup>) cho khách hàng mua online. </span>
+            <br>
+            <i class="fas fa-box-open"></i>
+            <span> Trong hộp có: Dây nguồn, Adapter sạc, Sách hướng dẫn. </span>
+            <br>
+            <i class="fas fa-medal"></i>
+            <span> Bảo hành chính hãng 12 tháng. </span>
+            <br>
+            <i class="fas fa-undo-alt"></i>
+            <span> Đổi mới trong vòng 15 ngày. </span>
+            <br>
+            <i class="fas fa-truck"></i>
+            <span> Vận chuyển: Miễn phí vận chuyển với đơn hành trên (500.000<sup><u>đ</u></sup>). </span>
+            <br>
+            <i class="fas fa-flag"></i>
+            <span> Xuất xứ: Việt Nam. </span>
+            <i class="fas fa-flag"></i>
+            <span> Tình trạng: @Html.DisplayFor(model => model.Available). </span>
+        </div>
+
+        <div class="slide">
+            <h4> Đặc điểm nổi bật của @Html.DisplayFor(model => model.NameProduct) </h4>
+            <div class="dieuhuong">
+                <i class="fas fa-angle-left" onclick="Back();"></i>
+                <i class="fas fa-angle-right" onclick="Next();"></i>
+            </div>
+
+            <div class="chuyen-slide">
+                <img src="@Url.Content(Model.Images)" ; />
+            </div>
+        </div>
+        <script type="text/javascript">
+            var KichThuoc = document.getElementsByClassName("slide")[0].clientWidth;
+            var ChuyenSlide = document.getElementsByClassName("chuyen-slide")[0];
+            var Img = ChuyenSlide.getElementsByTagName("img");
+            var Max = KichThuoc * Img.length;
+            Max -= KichThuoc;
+            var Chuyen = 0;
+            function Next() {
+                if (Chuyen < Max)
+                    Chuyen += KichThuoc;
+                else
+                    Chuyen = 0;
+                ChuyenSlide.style.marginLeft = '-' + Chuyen + 'px';
+            }
+
+            function Back() {
+                if (Chuyen == 0)
+                    Chuyen = Max;
+                else
+                    Chuyen -= KichThuoc;
+                ChuyenSlide.style.marginLeft = '-' + Chuyen + 'px';
+            }
+
+            setInterval(function () {
+                Next();
+            }, 4000)
+        </script>
+
+        <div class="thongso">
+            <h4 class="tskt"> Thông số kỹ thuật </h4>
+            <h5 class="scrollbar">@Html.DisplayFor(model => model.Descriptions)</h5>
+        </div>
+
+        <div class="gioithieu">
+            <h1> Phản hồi </h1>
+
+
+            <textarea rows="7" cols="50">
+				</textarea>
+            <div class="button">
+                <button type="button" class="btn btn-info" id="button"> GỬI </button>
+            </div>
+
+            <div class="phanhoi">
+                <p class="name"> Lê Văn Thiện <i class="fas fa-check-circle"></i><span class="binhluan"> Đã mua tại shopbanhang.com </span></p>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span> Máy đẹp đánh văn bản tốt bàn phím độ nảy tốt xem phim nghe nhạc thì khỏi bàn rồi loa to rõ tốt trong tầm giá </span>
+                <br>
+                <a href="#"> 2 bình luận </a>
+                <p class="name"> Thanh Ngọc  <i class="fas fa-check-circle"></i><span class="binhluan"> Đã mua tại shopbanhang.com </span></p>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span> Mua gần nửa năm rồi,mọi thứ rất tốt. máy đẹp , hiệu năng ổn...nhưng add ơi cho hỏi máy bị trầy nhiêu xước quá đánh cana lên được ko, bớt trầy ko! </span>
+                <br>
+                <a href="#"> 5 bình luận </a>
+                <p class="name"> Quốc Tú <i class="fas fa-check-circle"></i><span class="binhluan"> Đã mua tại shopbanhang.com </span></p>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span> Máy đẹp ,dùng xem phim lướt web vi tính văn phòng đơn giản thì phù hợp .,Bán hàng ĐMX chăm sóc tốt tư vấn nhiệt tình thân thiện  </span>
+                <br>
+                <a href="#"> 12 bình luận </a>
+                <br>
+                <p class="name"> Hồng Oanh <i class="fas fa-check-circle"></i><span class="binhluan"> Đã mua tại shopbanhang.com </span></p>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span> Mới mua được 1 ngày,máy đẹp, chạy nhanh,mượt,không biết cài phần mềm KT có ổn không,nhưng bây giờ sử dụng thì ok,thích hợp cho những bạn sinh viên đang học tập.  </span>
+                <br>
+                <a href="#"> 7 bình luận </a>
+
+            </div>
+        </div>
+    </article>
+</aside>
+<p>
+
+    <button type="button" style="border-radius: 8px;background-color: #707070;color: white;">@Html.ActionLink("Back to List", "Index")</button>
+</p>
